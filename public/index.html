@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PocketPack - any article becomes an offline study pack</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:#f4f1ea;color:#1c1c1c;line-height:1.6}
+.wrap{max-width:44rem;margin:0 auto;padding:2.5rem 1rem}
+h1{font-size:1.9rem;margin:0 0 .3rem}
+.sub{color:#555;margin:0 0 1.6rem}
+.card{background:#fff;border:1px solid #e3ddd0;border-radius:14px;padding:1.4rem;margin-bottom:1.2rem}
+textarea{width:100%;min-height:110px;font:inherit;font-size:.95rem;padding:.7rem;border:1px solid #d8d2c4;border-radius:10px;resize:vertical}
+button{font:inherit;font-size:1rem;padding:.65rem 1.6rem;border:none;border-radius:999px;background:#2b5ea7;color:#fff;cursor:pointer}
+button:disabled{opacity:.5;cursor:wait}
+.err{background:#fbdede;border:1px solid #c0453e;border-radius:10px;padding:.7rem 1rem;margin-top:.9rem;display:none;font-size:.9rem}
+.ok{background:#e8f4ea;border:1px solid #3a9e4f;border-radius:10px;padding:.9rem 1.1rem;margin-top:.9rem;display:none;font-size:.92rem}
+.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.8rem;margin-top:1.6rem}
+.feat{background:#fff;border:1px solid #e3ddd0;border-radius:12px;padding:.9rem 1rem;font-size:.85rem}
+.feat b{display:block;margin-bottom:.2rem}
+a.dl{display:inline-block;margin-top:.4rem;font-weight:600;color:#2b5ea7}
+.steps{font-size:.92rem;color:#444;padding-left:1.2rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>PocketPack</h1>
+<p class="sub">Paste an article URL or any text. Get one small HTML file you can open anywhere - no internet needed - with chunked reading, read-aloud, a dyslexia-friendly mode, a hard-word glossary, and a self-quiz.</p>
+
+<div class="card">
+<textarea id="src" placeholder="https://example.com/an-article&#10;&#10;...or just paste the text itself here"></textarea>
+<div style="margin-top:.8rem;display:flex;gap:.7rem;align-items:center">
+<button id="go">Make my pack</button>
+<span id="busy" style="display:none;font-size:.85rem;color:#666">Fetching and packing&hellip;</span>
+</div>
+<div class="err" id="err"></div>
+<div class="ok" id="ok"></div>
+</div>
+
+<div class="card">
+<b>Try a sample pack first</b>
+<p style="font-size:.92rem">Pre-generated from real Wikipedia articles - download one and open it offline:
+<a class="dl" href="/sample-dyslexia.html" download>Dyslexia (31 KB)</a> &middot;
+<a class="dl" href="/sample-photosynthesis.html" download>Photosynthesis (55 KB)</a> &middot;
+<a class="dl" href="/sample-internet-safety.html" download>Internet safety (18 KB)</a></p>
+</div>
+
+<div class="card">
+<b>How it works</b>
+<ol class="steps">
+<li>Paste a link or text above and press <b>Make my pack</b>.</li>
+<li>Your browser downloads a single <code>.html</code> file (usually under 150 KB).</li>
+<li>Open it on any phone, tablet, or laptop - it works fully offline.</li>
+<li>Read in short parts, have it read aloud, switch on the dyslexia-friendly font, check the glossary, then quiz yourself.</li>
+</ol>
+</div>
+
+<div class="feats">
+<div class="feat"><b>Offline-first</b>One file, no network, no app, no account.</div>
+<div class="feat"><b>Chunked reading</b>Long text split into short, finishable parts.</div>
+<div class="feat"><b>Read aloud</b>Uses your device's built-in speech.</div>
+<div class="feat"><b>Dyslexia-friendly</b>One tap for wider spacing and an easier font.</div>
+<div class="feat"><b>Hard-word glossary</b>Flags uncommon long words to look up.</div>
+<div class="feat"><b>Self-quiz</b>Fill-in-the-blank questions from the text.</div>
+</div>
+</div>
+<script>
+const $ = id => document.getElementById(id);
+$('go').onclick = async () => {
+  const source = $('src').value.trim();
+  $('err').style.display = 'none'; $('ok').style.display = 'none';
+  if (!source) { $('err').textContent = 'Paste a URL or some text first.'; $('err').style.display = 'block'; return; }
+  $('go').disabled = true; $('busy').style.display = 'inline';
+  try {
+    const r = await fetch('/api/pack', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ source }) });
+    if (!r.ok) {
+      const j = await r.json().catch(() => ({}));
+      throw new Error(j.error || 'Something went wrong (HTTP ' + r.status + ').');
+    }
+    const stats = JSON.parse(decodeURIComponent(r.headers.get('x-pack-stats') || '%7B%7D'));
+    const title = decodeURIComponent(r.headers.get('x-pack-title') || 'your pack');
+    const blob = await r.blob();
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'pocketpack.html';
+    a.click();
+    $('ok').innerHTML = 'Pack for <b>' + title.replace(/</g,'&lt;') + '</b> is downloading: ' +
+      (stats.words || '?') + ' words in ' + (stats.chunks || '?') + ' parts, ' +
+      (stats.glossary || 0) + ' glossary words, ' + (stats.quiz || 0) + ' quiz questions, ' +
+      Math.round((stats.bytes || 0) / 1024) + ' KB. Open the file any time - even offline.';
+    $('ok').style.display = 'block';
+  } catch (e) {
+    $('err').textContent = e.message; $('err').style.display = 'block';
+  } finally {
+    $('go').disabled = false; $('busy').style.display = 'none';
+  }
+};
+</script>
+</body>
+</html>
