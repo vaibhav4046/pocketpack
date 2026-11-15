@@ -1,0 +1,8 @@
+{
+  "name": "pocketpack",
+  "version": "1.0.0",
+  "description": "Any article becomes an offline, accessible study pack (single HTML file).",
+  "type": "module",
+  "scripts": { "start": "node run.mjs" },
+  "license": "MIT"
+}
