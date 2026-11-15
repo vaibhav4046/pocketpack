@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Internet safety - Wikipedia - PocketPack</title>
+<style>
+:root{--bg:#fdfbf7;--fg:#1c1c1c;--accent:#2b5ea7;--card:#ffffff;--line:#e3ddd0;}
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,'Times New Roman',serif;background:var(--bg);color:var(--fg);line-height:1.75;font-size:19px}
+body.dyslexic{font-family:'Comic Sans MS','Chalkboard SE',sans-serif;letter-spacing:.06em;word-spacing:.12em;line-height:2.05}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);padding:.6rem 1rem;z-index:10}
+.bar{max-width:46rem;margin:0 auto;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;justify-content:space-between}
+h1{font-size:1.15rem;margin:0;flex:1 1 100%}
+.controls{display:flex;flex-wrap:wrap;gap:.4rem}
+button{font:inherit;font-size:.85rem;padding:.35rem .8rem;border:1px solid var(--line);border-radius:999px;background:var(--card);cursor:pointer}
+button:hover{border-color:var(--accent)}
+button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+main{max-width:46rem;margin:0 auto;padding:1.2rem 1rem 4rem}
+.meta{font-size:.8rem;color:#666;margin-bottom:1.5rem}
+.chunk{display:none}
+.chunk.active{display:block;animation:fade .25s}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.chunk p{margin:0 0 1.1rem}
+.nav{display:flex;justify-content:space-between;align-items:center;margin:1.6rem 0;gap:.6rem}
+.prog{font-size:.8rem;color:#666}
+section.panel{display:none;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.2rem 1.4rem;margin-bottom:1rem}
+section.panel.active{display:block}
+h2{font-size:1.05rem;margin:0 0 .8rem}
+mark{background:#fff3a3;padding:0 .1em;border-radius:2px}
+.gw{border-bottom:2px dotted var(--accent);cursor:help}
+.quiz-opt{display:block;width:100%;text-align:left;margin:.35rem 0;border-radius:8px;padding:.55rem .9rem}
+.quiz-opt.correct{background:#d7f5dd;border-color:#3a9e4f}
+.quiz-opt.wrong{background:#fbdede;border-color:#c0453e}
+.feedback{font-size:.9rem;margin-top:.5rem}
+.big-text{font-size:22px}
+@media(prefers-color-scheme:dark){:root{--bg:#16161a;--fg:#e8e4dc;--card:#1f1f24;--line:#33333a;--accent:#7aa2e3}mark{background:#6b5d1f}}
+</style>
+</head>
+<body>
+<header><div class="bar">
+<h1 id="ptitle"></h1>
+<div class="controls">
+<button id="bRead" title="Read the current chunk aloud">&#9654; Read aloud</button>
+<button id="bFont" title="Dyslexia-friendly font and spacing">Aa Dyslexia font</button>
+<button id="bSize" title="Bigger text">A+</button>
+<button id="bGloss" title="Hard words in this text">Glossary</button>
+<button id="bQuiz" title="Test yourself">Quiz</button>
+</div></div></header>
+<main>
+<div class="meta" id="pmeta"></div>
+<section class="panel" id="glossPanel"><h2>Glossary - hard words in this text</h2><div id="glossBody"></div></section>
+<section class="panel" id="quizPanel"><h2>Quick self-quiz</h2><div id="quizBody"></div></section>
+<div id="chunks"></div>
+<div class="nav">
+<button id="bPrev">&larr; Previous part</button>
+<span class="prog" id="prog"></span>
+<button id="bNext">Next part &rarr;</button>
+</div>
+</main>
+<script id="pack-data" type="application/json">{"title":"Internet safety - Wikipedia","fromUrl":"https://en.wikipedia.org/wiki/Internet_safety","chunks":["Internet safety , also known as online safety , cyber safety , and e-safety , refers to policies, practices and processes that reduce harms to people that are enabled by the misuse of the Internet . This misuse is due to the ease of which information is documented and spread online. Private information may be put at risk if safety measures are not properly put in place. Harm can also be done through uploaded media, which may contain inappropriate content or targeted attacks. Governments, and organizations have expressed concerns about the safety of children, teenagers and the elderly using the Internet. Many businesses and organizations have been faced with cybercrime and cyberattacks , including Internet fraud , which have resulted in negative impacts including to finances, customer security, and client trust. Internet security measures and trust and safety teams are part of efforts to improve Internet safety.","Phishing is a type of scam where the scammers disguise themselves as a trustworthy source in an attempt to obtain private information such as passwords, credit card information, etc. through the internet. These fake websites are often designed to look identical to their legitimate counterparts to avoid suspicion from the user. Normally, hackers will send third-party email to target requesting personal information, and they will use this as an entry point to implement attack. Malware , particularly spyware , is malicious software designed to collect and transmit private information, such as passwords, without the user's consent or knowledge. They are often distributed through e-mail, software, and files from unofficial locations. Types of malware include viruses , trojan horse , backdoor , ransomware , rootkit , worm , droppers , and click fraud . Malware is a prevalent security concern as often it is impossible to determine whether a file is infected, regardless of the source of the file.","Various methods are used to obfuscate the malicious program, including encryption , stealth, and packaging. Each method serves to make the malware harder to detect and analyze, turning malware into a much more difficult problem. The growth of the internet gave rise to many important services accessible to anyone with a connection. One of these important services is digital communication . While this service allowed communication with others through the internet, this also allowed communication with malicious users. While malicious users often use the internet for personal gain, this may not be limited to financial/material gain. This is especially a concern to parents and children, as children are targets of these malicious users. Common threats to personal safety include phishing, internet scams, malware, cyberstalking, cyberbullying, online predators, and sextortion. Cyberstalking is the use of the internet or other electronic means to stalk or harass an individual, group, or organization.","It is a crime in which someone harasses or stalks a victim using electronic or digital means, such as social media , email, instant messaging, or messages posted to a discussion group or forum. It may include false accusations , defamation , slander and libel . It may also include monitoring, identity theft , threats, vandalism, solicitation for sex, or gathering information that may be used to threaten, embarrass or harass. The terms cyberstalking and cyberbullying are often used interchangeably. Cyberbullying is the use of electronic means such as instant messaging, social media, e-mail and other forms of online communication with the intent to abuse, intimidate, or overpower an individual or group. Over the past decade, cyberbullying has been a social problem identified as a significant problem for youth. In a 2012 study of over 11,925 students in the United States, it was indicated that 23% of adolescents reported being a victim of cyberbullying, 30% of which reported experiencing suicidal behavior.","The Australian eSafety Commissioner 's website reports that 44% of young Australians report being socially excluded, threatened or abused online. Sometimes, this takes the form of posting unverifiable and illegal libelous statements on harassment websites. These websites then run advertisements encouraging the victims to pay thousands of dollars to related businesses to get the posts removed – temporarily, as opposed to the free and permanent removal process available through major web search engines. Child-on-child abuse (peer-on-peer abuse) that happens online often falls under cyberbullying. However, it goes much further. It can include physical and sexual abuse or harassment, relationship abuse, grooming and more. Various websites on the internet contain material that some deem offensive, distasteful, explicit, or sexual content, which may often be not of the user's liking. Such websites may include the internet , shock sites , hate speech or otherwise inflammatory content. Such content may manifest in many ways, such as pop-up ads and unsuspecting links.","Offensive content can also be found on social media sites, where platforms balance moderation with free speech. This often takes the form of hate speech, targeting marginalized people whose reports are less likely to be taken seriously by moderation teams. The proliferation of hate speech creates an environment where users feel unsafe and unprotected by websites. Sextortion , especially via the use of webcams, is a concern, especially for those who use webcams for flirting and cybersex . Often this involves a cybercriminal posing as someone else - such as an attractive person - initiating communication of a sexual nature with the victim. The victim is then persuaded to undress in front of a webcam, and may also be persuaded to engage in sexual behavior, such as masturbation .","The video is recorded by the cybercriminal, who then reveals their true intent and demands money or other services (such as more explicit images of the victim, in cases of online predation ), threatening to publicly release the video and send it to family members and friends of the victim if they do not comply. A video highlighting the dangers of sextortion has been released by the National Crime Agency in the UK to educate people, especially given the fact that blackmail of a sexual nature may cause humiliation to a sufficient extent to cause the victim to take their own life , in addition to other efforts to educate the public on the risks of sextortion. Doxxing is the act of sharing a person's private information over the internet without consent. This information typically includes home addresses, phone numbers, and names. These attacks are often done with malicious intent, leaving individuals vulnerable to threats and harassment offline.","Anonymity emboldens doxxers to expose this sensitive data, removing the fear of consequences for their actions. A form of doxing is known as swatting , where the doxxer falsely alerts the police to an attack occurring on the victim's premises. Swatting is a more extreme version of doxxing, as it directly puts the target in a tense situation with a SWAT team. This can cause physical harm to the target, and can negatively impact their reputation. Online predation , or online child grooming , is the act of engaging an underage minor in inappropriate sexual relationships, but can also refer to radicalisation , drug trafficking , and financial gain through the Internet. Online predators may attempt to initiate and seduce minors into relationships through the use of chat rooms or internet forums . Once they gain this trust, the groomer can manipulate the child to do what they want, which may include sending sexual images, running drugs, or any number of other activities.","The methods for online grooming are similar to offline methods with added strategies. These strategies include enticement, risk assessment, authority, trust, sexualization, fantasy, secrecy and isolation. Groomers assess the risk of engaging with a victim, gauging vulnerability and the potential for victims to be undercover officers. Predation can occur over many chatrooms, forums, and direct messaging, making it harder to track. Online predation tends to be much faster too, with risk assessment and sexual discussion sooner than offline predation. Victims of online predation may experience embarrassment, lower self esteem, trust issues, and additional phycological impacts. It can also strain relationships with family and friends. Safer Internet Day is celebrated worldwide in February to raise awareness about internet safety. It originated as an initiative of the EU-funded SafeBorders project and was first marked in 2004, before being adopted by the Insafe network of Safer Internet Centres the following year.","The French-Australian educator Janice Richardson, who helped set up and then coordinated the European Safer Internet network until 2014, is credited as its creator. Groups previously or currently working on the topic of internet safety include:"],"glossary":[{"word":"Internet","count":22},{"word":"safety","count":10},{"word":"information","count":9},{"word":"malicious","count":6},{"word":"cyberbullying","count":6},{"word":"predation","count":6},{"word":"communication","count":5},{"word":"especially","count":4},{"word":"sextortion","count":4},{"word":"including","count":3},{"word":"security","count":3},{"word":"personal","count":3}],"quiz":[{"sentence":"_____ safety , also known as online safety , cyber safety , and e-safety , refers to policies, practices and processes that reduce harms to people that are enabled by the misuse of the Internet .","options":["malicious","information","safety","Internet"],"answer":"Internet"},{"sentence":"Internet _____ , also known as online safety , cyber safety , and e-safety , refers to policies, practices and processes that reduce harms to people that are enabled by the misuse of the Internet .","options":["malicious","information","Internet","safety"],"answer":"safety"},{"sentence":"This misuse is due to the ease of which _____ is documented and spread online.","options":["malicious","safety","Internet","information"],"answer":"information"},{"sentence":"Malware , particularly spyware , is _____ software designed to collect and transmit private information, such as passwords, without the user's consent or knowledge.","options":["malicious","safety","Internet","information"],"answer":"malicious"},{"sentence":"Common threats to personal safety include phishing, internet scams, malware, cyberstalking, _____, online predators, and sextortion.","options":["information","cyberbullying","Internet","safety"],"answer":"cyberbullying"}],"stats":{"words":1372,"sentences":69,"flesch":36,"minutes":7}}</script>
+<script>
+const D = JSON.parse(document.getElementById('pack-data').textContent);
+let idx = 0, speaking = false, bigText = false;
+const $ = id => document.getElementById(id);
+document.title = D.title + ' - PocketPack';
+$('ptitle').textContent = D.title;
+$('pmeta').textContent = '~' + D.stats.words + ' words - ' + D.chunks.length + ' parts - about ' + D.stats.minutes + ' min to read' + (D.fromUrl ? ' - source: ' + D.fromUrl : '') + ' - works fully offline';
+
+const glossWords = D.glossary.map(g => g.word.toLowerCase());
+function markHard(text){
+  let out = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  for (const g of D.glossary){
+    const re = new RegExp('\\b(' + g.word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')\\b','gi');
+    out = out.replace(re, '<span class="gw" title="Hard word - see Glossary">$1</span>');
+  }
+  return out;
+}
+function render(){
+  const box = $('chunks'); box.innerHTML = '';
+  D.chunks.forEach((c,i)=>{
+    const d = document.createElement('div');
+    d.className = 'chunk' + (i===idx?' active':'');
+    d.innerHTML = '<p>' + markHard(c).replace(/\n{2,}/g,'</p><p>').replace(/\n/g,'<br>') + '</p>';
+    box.appendChild(d);
+  });
+  $('prog').textContent = 'Part ' + (idx+1) + ' of ' + D.chunks.length;
+  $('bPrev').disabled = idx===0; $('bNext').disabled = idx===D.chunks.length-1;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function show(panel){
+  for (const id of ['glossPanel','quizPanel']) $(id).classList.toggle('active', id===panel && !$(id).classList.contains('active'));
+}
+$('bPrev').onclick = ()=>{ if(idx>0){idx--; render(); stopSpeech();} };
+$('bNext').onclick = ()=>{ if(idx<D.chunks.length-1){idx++; render(); stopSpeech();} };
+$('bFont').onclick = e=>{ document.body.classList.toggle('dyslexic'); e.target.classList.toggle('on'); };
+$('bSize').onclick = e=>{ bigText=!bigText; document.body.classList.toggle('big-text',bigText); e.target.classList.toggle('on'); };
+function stopSpeech(){ if(window.speechSynthesis){ speechSynthesis.cancel(); speaking=false; $('bRead').innerHTML='&#9654; Read aloud'; } }
+$('bRead').onclick = ()=>{
+  if(!window.speechSynthesis){ alert('Read-aloud is not available in this browser.'); return; }
+  if(speaking){ stopSpeech(); return; }
+  const u = new SpeechSynthesisUtterance(D.chunks[idx]);
+  u.rate = 0.95;
+  u.onend = ()=>{ speaking=false; $('bRead').innerHTML='&#9654; Read aloud'; };
+  speechSynthesis.speak(u); speaking=true; $('bRead').innerHTML='&#9632; Stop';
+};
+$('bGloss').onclick = ()=>{
+  const b = $('glossBody');
+  if(!b.dataset.done){
+    b.innerHTML = D.glossary.length
+      ? '<p style="font-size:.85rem;color:#666">These longer, less common words appear in the text. Look them up before or while reading - the pack works offline, so keep a dictionary tab or app handy if you can.</p><ul>' +
+        D.glossary.map(g=>'<li><strong>'+g.word+'</strong> - appears '+g.count+'x</li>').join('') + '</ul>'
+      : '<p>No unusually hard words found - nice accessible read.</p>';
+    b.dataset.done = '1';
+  }
+  show('glossPanel');
+};
+$('bQuiz').onclick = ()=>{
+  const b = $('quizBody');
+  if(!b.dataset.done){
+    if(!D.quiz.length){ b.innerHTML = '<p>Could not build quiz questions from this text.</p>'; }
+    else {
+      b.innerHTML = D.quiz.map((q,i)=>
+        '<div style="margin-bottom:1.2rem"><p><strong>'+(i+1)+'.</strong> '+q.sentence.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</p>'+
+        q.options.map(o=>'<button class="quiz-opt" data-q="'+i+'" data-o="'+o.replace(/"/g,'&quot;')+'">'+o+'</button>').join('')+
+        '<div class="feedback" id="fb'+i+'"></div></div>').join('');
+      b.addEventListener('click', e=>{
+        const btn = e.target.closest('.quiz-opt'); if(!btn) return;
+        const q = D.quiz[+btn.dataset.q], fb = $('fb'+btn.dataset.q);
+        const ok = btn.dataset.o === q.answer;
+        btn.classList.add(ok?'correct':'wrong');
+        fb.textContent = ok ? 'Correct - well done.' : 'Not quite - the answer is "' + q.answer + '". Re-read that part if it helps.';
+      });
+    }
+    b.dataset.done='1';
+  }
+  show('quizPanel');
+};
+render();
+</script>
+</body>
+</html>
